@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'BaseView'], function() {
+    Route::get('/', 'BaseViewController@index')->name('home');
 });
+
+Route::group([
+    'namespace' => 'Author',
+    'prefix' => 'authors',
+    'as' => 'author.',
+], base_path('routes/author.php'));
+
+Route::group([
+    'namespace' => 'Entity',
+    'prefix' => 'entities',
+    'as' => 'entity.',
+], base_path('routes/entity.php'));

@@ -3,22 +3,17 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
+    public function register(): void {
+        Factory::guessFactoryNamesUsing(function ($className) {
+            return 'Database\\Factories\\' . class_basename($className) . 'Factory';
+        });
     }
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
+    public function boot(): void {
         //
     }
 }
