@@ -4,6 +4,7 @@ namespace App\Web\Entity;
 
 use App\Core\Entity\EntityRepository;
 use App\Http\Controller;
+use App\Web\Entity\Requests\SearchEntityRequest;
 
 class EntityController extends Controller 
 {
@@ -11,9 +12,9 @@ class EntityController extends Controller
         private EntityRepository $repository,
     ) {}
 
-    public function index() {
+    public function index(SearchEntityRequest $request) {
         return view('entity.index', [
-            'entities' => $this->repository->index()
+            'entities' => $this->repository->index($request->all())
         ]);
     }
 }

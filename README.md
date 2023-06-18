@@ -2,11 +2,58 @@
 
 ## Running the app
 
-LaravelLibraryExample app.
+Install sail:
+```
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
+```
 
-Run application:
+Start docker container:
+```
 ./vendor/bin/sail up
+./vendor/bin/sail bash
+```
 
+OR
+
+Run on local server
+
+Install dependencies:
+```
+composer install
+npm i
+```
+
+Transpile assets:
+```
+npm run dev
+```
+
+Copy env and generate key:
+```
+cp .env.example .env
+php artisan key:generate
+```
+
+Run migrations and seeders:
+```
+php artisan migrate:fresh --seed
+```
+
+Run tests:
+-- Inside docker bash
+```
+php artisan test
+```
+
+-- Outside
+```
+./vendor/bin/sail test
+```
 
 ## About
 
@@ -19,8 +66,3 @@ Doprovodne info: Entitou se rozumi: kniha, casopis, elektronicky nosic (pujde ta
 BE: Pro poutizi je vyzadovan laravel v (idealne) nejnovejsi verzi 10
 
 FE: Tady na tom nesejde, klidne nejaky JS framework, klidne blade template system od laravelu...
-
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

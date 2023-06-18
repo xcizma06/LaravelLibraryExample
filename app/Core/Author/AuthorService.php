@@ -9,9 +9,4 @@ class AuthorService
         $author->fill($data);
         $author->save();
     }
-
-    public function edit(Author $author, array $data) {
-        $author->fill($data);
-        $author->save();
-    }
 }

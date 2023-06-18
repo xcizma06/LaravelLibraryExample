@@ -1,4 +1,4 @@
-<div class="absolute right-0 bottom-[32px] flex flex-col gap-[6px]">
+<div class="absolute right-0 bottom-[32px] flex flex-col gap-[6px] w-[256px]">
     @if(count($errors->all()))
         <div class="alert bg-primary border border-primary rounded-l-[6px] px-[20px] py-[8px]">
             <ul class="my-[6px] text-white">

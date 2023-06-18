@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Web\Author\Requests;
+namespace App\Web\Entity\MagazineEntity\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateAuthorRequest extends FormRequest {
+class CreateMagazineEntityRequest extends FormRequest {
     public function rules(): array {
         return [
             'name' => 'required|string|min:2',
-            'surname' => 'required|string|min:2',
-            'email' => 'email|unique:authors',
+            'author' => 'required|exists:authors,id',
+            'description' => 'nullable|string',
         ];
     }
 

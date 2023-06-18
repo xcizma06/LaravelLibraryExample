@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Web\Author\Requests;
+namespace App\Web\Entity\BookEntity\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateAuthorRequest extends FormRequest {
+class UpdateBookEntityRequest extends FormRequest {
     public function rules(): array {
         return [
             'name' => 'required|string|min:2',
-            'surname' => 'required|string|min:2',
-            'email' => 'email|unique:authors',
+            'description' => 'nullable|string',
+            'isbn' => 'required|string|unique:entities,isbn,'.$this->entity->id,
         ];
     }
 

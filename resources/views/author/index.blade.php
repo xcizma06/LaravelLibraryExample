@@ -24,6 +24,6 @@
                 </div>
             @endforeach
         </div>
-        {{  $authors->links() }}
+        {{  $authors->onEachSide(1)->links() }}
     </div>
 @endsection

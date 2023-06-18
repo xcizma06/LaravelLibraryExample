@@ -6,8 +6,8 @@
     <hr class="border-opacity-10 border-white">
     <nav class="flex flex-col gap-[8px] p-[24px]">
         <span class="font-bold text-center pb-[8px]">{{ __('Menu') }}</span>
-        <span><a href="/">{{ __('Dashboard') }}</a></span>
-        <span><a href="{{ route('author.index') }}">{{ __('Authors') }}</a></span>
-        <span><a href="{{ route('entity.index') }}">{{ __('Entities') }}</a></span>
+        <span><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">{{ __('Dashboard') }}</a></span>
+        <span><a href="{{ route('author.index') }}" class="{{ request()->is('authors*') ? 'active' : '' }}">{{ __('Authors') }}</a></span>
+        <span><a href="{{ route('entity.index') }}" class="{{ request()->is('entities*') ? 'active' : '' }}">{{ __('Entities') }}</a></span>
     </nav>
 </aside>

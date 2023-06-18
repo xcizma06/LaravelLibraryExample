@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import '~tom-select/dist/css/tom-select.min.css';
 
 @layer base {
     html {
         scroll-behavior: smooth;
-        @apply bg-background;
+        @apply bg-background text-dark;
     }
     
     * {
@@ -32,16 +33,20 @@
         @apply text-h3;
     }
 
-    a:not(.btn), .link {
-        @apply opacity-50 hover:opacity-100 transition-all;
+    a:not(.btn, .unstyled), .link {
+        @apply opacity-50 hover:opacity-100 transition-opacity;
+    }
+
+    a.active, .link.active {
+        @apply opacity-100;
     }
 
     .container {
         @apply mx-auto px-[16px];
     }
 
-    input {
-        @apply outline-none appearance-none px-[16px] py-[12px] rounded-[4px] border border-border;
+    input, textarea, .ts-control {
+        @apply text-label leading-normal outline-none appearance-none px-[16px] py-[12px] rounded-[4px] border border-border;
     }
 }
 
@@ -53,8 +58,26 @@
     .btn-primary {
         @apply bg-primary border-primary text-white hover:text-primary hover:bg-white;
     }
+
+    .btn-primary.active {
+        @apply text-primary bg-white;
+    }
     
     .btn-secondary {
         @apply bg-dark border-dark text-white hover:text-dark hover:bg-white;
+    }
+    
+    .btn-secondary.active {
+        @apply text-dark bg-white;
+    }
+}
+
+@layer utilities {
+    [collapse-target] {
+        @apply overflow-hidden transition-all;
+    }
+
+    .collapsed [collapse-target] {
+        @apply max-h-0 p-0 opacity-0;
     }
 }

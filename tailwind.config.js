@@ -30,6 +30,9 @@ module.exports = {
         larger: "18px",
         small: "14px",
       },
+      boxShadow: {
+        main: '0px 8px 32px -8px rgba(0, 0, 0, 0.08)',
+      },
       transitionTimingFunction: {
         'bezier': 'cubic-bezier(0.75, -0.5, 0, 1.5)',
       }
